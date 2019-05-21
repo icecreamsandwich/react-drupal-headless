@@ -123,3 +123,13 @@ ul {
     padding: 5px;
     border: 1px solid #f2f2f2;
 }
+.logo{
+  float: left;
+  clear: both;
+  position: absolute;
+}
+.right_header{
+  float: right;
+  color: #fffeff;
+  background-color: #c12a2a
+}

@@ -5,15 +5,16 @@ export default class Nodes extends Component {
   state ={
     service_details : null
   }
+
   componentDidMount() {
-    axios("http://192.168.1.202/gasf/getAllServiceNames")
+    axios.post("http://192.168.1.202/gasf/getAllServiceNames")
     .then((res) => {
       console.log(JSON.parse(res))
       this.setState({
         service_details : JSON.parse(res)
       })
     })
-    .catch((err) => console.log(err))
+    .catch(err => console.log(err))
   }
   
   render() {
