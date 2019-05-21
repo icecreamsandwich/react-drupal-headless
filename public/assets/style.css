@@ -1,0 +1,125 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+   /*  background-color: #333; */
+  }
+  
+  li {
+    float: left;
+    border-right:1px solid #bbb;
+  }
+  
+  li:last-child {
+    border-right: none;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover:not(.active) {
+    background-color: #111;
+  }
+  
+  .active {
+    /* background-color: #4CAF50; */
+  }
+  
+  .result{
+      display: block;
+      background-color: #a0c88c;
+      height: auto;
+      /* float: left; */
+      /* width: 900px; */
+      /*  margin: 100px 50px 50px 50px; */
+      padding: 20px 20px 20px 20px;
+      border-radius: 5px;
+      overflow: hidden;
+  }
+  .tweet_container{
+    display: block;
+    background-color: #bbb;
+    height: 400px;
+   /*  float: left; */
+    margin: 100px 50px 50px 50px;
+    /* padding: 20px 20px 20px 20px; */
+    border-radius: 5px;
+    width: 265px;
+    overflow: scroll;
+  }
+  .tweet_header{
+    display: block;
+    background-color:sandybrown;
+    border-bottom: 2px solid saddlebrown;
+    width: 100%;
+    padding : 20px 0px 10px 0px;
+    text-align: center;
+    font-family: cursive;
+  }
+  .tweet_block{
+    padding: 20px 20px 20px 20px;
+  }
+  .left-nav{
+    float: left;
+    width: 13%;
+    background-color: darkgrey;
+    height: 600px;
+  }
+  .right-nav{
+    float: left;
+    width: 13%;
+    background-color: darkgrey;
+    height: 600px;
+  }
+  .content{
+    float: left;
+    width:74%
+  }
+  .footer{
+    position: fixed;
+    width: 100%;
+    background-color:#c12a2a;
+    bottom :0;
+  }
+  .error{
+    display: block;
+    background-color: tomato;
+  }
+  .table{
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .table th{
+    padding : 12px 0px 12px 0px;
+    text-align: center;
+    color: white;
+    background-color: #4CAF50;
+    border:1px solid #ddd;
+  }
+  .table td{
+    padding: 8px;
+    text-align: left;
+    border:1px solid #ddd;
+  }
+  .table tr:hover{
+    background-color: #ddd;
+  }
+  .table tr:nth-child(even){
+    background-color: #f2f2f2
+  }
+  .Header{
+    background-color:#c12a2a;
+    margin-left: 13%;
+    margin-right: 13%;
+  }
+  .left-nav li {
+    float: none;
+    padding: 5px;
+    border: 1px solid #f2f2f2;
+}
