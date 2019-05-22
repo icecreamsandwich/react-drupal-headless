@@ -85,6 +85,23 @@ app.post('/db/aggregate', function (req, res) {
     });
 })
 
+//Api to recieve rest data from drupal
+app.post('/drupal/api/getAllServiceNames',function(req, res){
+    var host = 'http://192.168.1.202';
+    var options ={
+        method : 'POST',
+        uri : host + '/gasf/getAllServiceNames',
+        headers : {
+            'Content-type' : 'application/json'
+        }          
+    }
+    request(options, function(err, response, body){
+        if(err) console.log(err);
+        else res.send(body);
+    })
+});
+
+
 app.listen(port, function (req, res) {
     console.log(`app is listening on port ${port}`);
 });

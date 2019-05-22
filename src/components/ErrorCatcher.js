@@ -20,7 +20,7 @@ class ErrorCatcher extends Component {
             //Fallback UI on error catch
             return (
                 <div className="error">
-                    <h1>Something went Wrong! Reason: {this.state.error}</h1>
+                    <h1>Something went Wrong!</h1>
                     <details style={{ whiteSpace: 'pre-wrap' }}>
                         {this.state.errorInfo.componentStack}
                     </details>

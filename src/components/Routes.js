@@ -3,7 +3,7 @@ import {HashRouter,  Route} from 'react-router-dom';
 
 //Import components
 import Home from './children/Home';
-import Nodes from './children/Nodes';
+import ServiceNames from './children/ServiceNames';
 import IpRanges from './children/IpRanges';
 import Locations from './children/Locations';
 import Vcenters from './children/Vcenters';
@@ -16,7 +16,7 @@ class Routes extends Component {
                 <HashRouter>              
                     <Route exact path="/" component={Home} />
                     <Route path="/home" component={Home} />
-                    <Route path="/nodes" component={Nodes} />
+                    <Route path="/servicenames" component={ServiceNames} />
                     <Route path="/ip_ranges" component={IpRanges} />
                     <Route path="/locations" component={Locations} />
                     <Route path="/vcenters" component={Vcenters} />
