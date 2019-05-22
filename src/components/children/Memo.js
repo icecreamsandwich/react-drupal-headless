@@ -7,7 +7,7 @@ class Memo extends Component {
         date : new Date(),
         seconds :1 
     }
-    componentDidMount() {        
+    componentDidMount() {   
             setInterval(() => {
                 this.setState({
                     date: new Date()

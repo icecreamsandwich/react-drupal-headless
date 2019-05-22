@@ -17,6 +17,13 @@ const Loader = (BaseComponent) => {
         })
       })
       .catch(err => console.log(err));   
+      /* var details = {
+        status : 'success',
+        data : 'loaded'
+      }
+      this.setState({
+        data : JSON.stringify(details)
+      }); */
     }
 
     render() {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Loader from './Loader';
+import {Link} from 'react-router-dom';
+
 
 class ServiceNames extends Component {
   state = {
@@ -24,7 +25,9 @@ class ServiceNames extends Component {
     if (this.state.service_details && this.state.service_details.length > 0) {
       console.log(this.state.service_details)
     }
-
+    if(!this.state.service_details){
+      return <div>Loading ...</div>;
+    }
     return (
       <div>
         <React.Fragment>
@@ -43,7 +46,18 @@ class ServiceNames extends Component {
                 return (
                   <React.Fragment>
                     <tr>
-                      <td>{items.field_service_name}</td>
+                      <td>
+                      <Link to={{
+                        pathname : '/servicedetails',
+                        state : {
+                          field_service_name :  items.field_service_name,
+                          field_remedy_slu :  items.field_remedy_slu,
+                          field_p_sla :  items.field_p_sla,
+                          field_p_environment :  items.field_p_environment,
+                          field_service_owner_name :  items.field_service_owner_name,
+                        }
+                      }} >{items.field_service_name}</Link>
+                      </td>
                       <td>{items.field_remedy_slu}</td>
                       <td>{items.field_p_sla}</td>
                       <td>{items.field_p_environment}</td>
@@ -54,6 +68,7 @@ class ServiceNames extends Component {
                 )
               }) : ""
               }
+              
             </tbody>
           </table>
 
@@ -63,31 +78,4 @@ class ServiceNames extends Component {
   }
 }
 
-export default Loader(ServiceNames);
-
-{/* <table className="table">
-            <tbody>
-              <tr>
-                <th>Service Name</th>
-                <th>SLA</th>
-                <th>SLU</th>
-                <th>Env</th>
-                <th>Service Owner Name</th>
-                <th>Service Owner Email</th>
-              </tr>
-              {service_details ?
-                service_details.map((items) => {
-                  return (<React.Fragement>
-                    <tr>
-                      <td>{items.field_service_name}</td>
-                      <td>{items.field_remedy_slu}</td>
-                      <td>{items.field_p_sla}</td>
-                      <td>{items.field_p_environment}</td>
-                      <td>{items.field_service_owner_name}</td>
-                      <td>{items.field_service_owner_email}</td>
-                    </tr>
-                  </React.Fragement>);
-                })
-                : ""}
-            </tbody>
-          </table> */}
+export default ServiceNames;

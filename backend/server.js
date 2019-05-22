@@ -99,8 +99,8 @@ app.post('/drupal/api/getAllServiceNames',function(req, res){
         if(err) console.log(err);
         else res.send(body);
     })
+    
 });
-
 
 app.listen(port, function (req, res) {
     console.log(`app is listening on port ${port}`);
