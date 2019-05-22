@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-class IpRanges extends Component {
+class IPRanges extends Component {
     render() {
         return (
             <div>
-                <h5>IP ranges</h5>
+                <h2>Ip ranges</h2>
             </div>
         );
     }
 }
 
-export default IpRanges;
+export default IPRanges;

@@ -5,7 +5,7 @@ import {HashRouter,  Route} from 'react-router-dom';
 import Home from './children/Home';
 import ServiceNames from './children/ServiceNames';
 import ServiceDetails from './children/ServiceDetails';
-import IpRanges from './children/IpRanges';
+import IPRanges from './children/IPRanges';
 import Locations from './children/Locations';
 import Vcenters from './children/Vcenters';
 import ProxyRequests from './children/ProxyRequests';
@@ -19,7 +19,7 @@ class Routes extends Component {
                     <Route path="/home" component={Home} />
                     <Route path="/servicenames" component={ServiceNames} />
                     <Route path="/servicedetails" component={ServiceDetails} />
-                    <Route path="/ip_ranges" component={IpRanges} />
+                    <Route path="/ip_ranges" component={IPRanges} />
                     <Route path="/locations" component={Locations} />
                     <Route path="/vcenters" component={Vcenters} />
                     <Route path="/proxy_requests" component={ProxyRequests} />
