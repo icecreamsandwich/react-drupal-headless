@@ -1,3 +1,10 @@
+## Run the app
+Replace all the variables inside .env file which will include base URL, drupal URL and 
+other API servers if any.
+
+### `start the backend server`
+`cd backend && npm start`
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

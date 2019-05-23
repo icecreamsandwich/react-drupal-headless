@@ -28,7 +28,7 @@ class MyConsumer extends Component {
     }
     componentDidMount() {
         //all request processes goes here
-        var host = "http://192.168.1.107:3002";
+        var host = process.env.REACT_APP_HOST_URL+':3002';
         axios.post(host + "/camunda/getProcessInstances")
             .then((responseData) => {
                 this.setState({

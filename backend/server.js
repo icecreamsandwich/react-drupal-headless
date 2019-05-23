@@ -20,7 +20,7 @@ app.get('/', function (req, res) {
 
 //Api to recieve rest data from drupal
 app.post('/drupal/api/getAllServiceNames',function(req, res){
-    var host = 'http://192.168.1.202';
+    var host = process.env.REACT_APP_DRUPAL_URL;
     var options ={
         method : 'POST',
         uri : host + '/gasf/getAllServiceNames',
@@ -37,7 +37,7 @@ app.post('/drupal/api/getAllServiceNames',function(req, res){
 
 //Camunda API's
 app.post('/camunda/getProcessInstances',function(req, res){
-    var host = 'http://192.168.1.203:8080';
+    var host = process.env.REACT_APP_CAMUNDA_URL+':8080';
     var options ={
         method : 'GET',
         uri : host + '/engine-rest/process-instance',

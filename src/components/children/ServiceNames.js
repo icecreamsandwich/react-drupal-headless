@@ -9,7 +9,7 @@ class ServiceNames extends Component {
   }
 
   componentDidMount() {
-    var host = "http://192.168.1.107:3002";
+    var host = process.env.REACT_APP_HOST_URL+':3002';
     axios.post(host + "/drupal/api/getAllServiceNames")
       .then((res) => {
         var service_details = JSON.parse(JSON.stringify(res.data));

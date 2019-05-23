@@ -9,7 +9,7 @@ const Loader = (BaseComponent) => {
 
     componentDidMount() {
         //call the api endpoint
-      var host = "http://192.168.1.107:3002";//"http://localhost:3002"
+      var host = process.env.REACT_APP_HOST_URL+":3002";//"http://localhost:3002"
       axios.post(host+"/api")
       .then((res) =>{
           this.setState({
