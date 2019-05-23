@@ -1,26 +1,56 @@
 import React, { Component } from 'react';
-
 import myContext from './Context';
-import Person2 from './children/Person2';
-    
-class MyConsumer extends Component {
+import axios from 'axios';
+
+//Import components
+import CamundaProcess from './children/camunda/CamundaProcess';
+import CamundaProcessDefinitions from './children/camunda/CamundaProcessDefinitions';
+
+class MyConsumerA extends Component {
     render() {
+        var context_ar = this.props.value;
+        var pInstances = this.props.processInstances;
+        if(pInstances){
+            console.log(pInstances)
+        }
         return (
             <div>
-              <myContext.Consumer>
+                {context_ar.state.routeTo === 'CamundaProcess' ? <CamundaProcess value={context_ar} pInstances={pInstances}/> : ""}
+                {context_ar.state.routeTo === 'CamundaProcessDefinitions' ? <CamundaProcessDefinitions value={context_ar} /> : ""}
+            </div>
+        );
+    }
+}
+
+class MyConsumer extends Component {
+    state = {
+        processInstances: ""
+    }
+    componentDidMount() {
+        //all request processes goes here
+        var host = "http://192.168.1.107:3002";
+        axios.post(host + "/camunda/getProcessInstances")
+            .then((responseData) => {
+                this.setState({
+                    processInstances: responseData.data
+                });
+            })
+            .catch(err => console.log(err))
+    }
+
+    render() {
+      //  console.log(this.state.processInstances)
+        return (
+            <div>
+                <myContext.Consumer>
                     {
                         (context) => (
                             <React.Fragment>
-                                {/* <p>Name : {context.state.name}</p>
-                                <p>Grade : {context.state.grade}</p>
-                                <p>Class : {context.state.class}</p>
-                                <p>Counter : {context.state.counter}</p> */}
-                                <Person2 value={context}/>
-                                {/* <button onClick={context.IncrementCounter}>Increment Counter</button> */}
+                            {this.state.processInstances ? <MyConsumerA value={context} processInstances={this.state.processInstances}/> : ""}                               
                             </React.Fragment>
                         )
                     }
-                </myContext.Consumer>  
+                </myContext.Consumer>
             </div>
         );
     }

@@ -12,8 +12,6 @@ class ServiceNames extends Component {
     var host = "http://192.168.1.107:3002";
     axios.post(host + "/drupal/api/getAllServiceNames")
       .then((res) => {
-        // console.log(JSON.stringify(res.data))
-        //  var service_details = JSON.parse(JSON.stringify(res.data))
         var service_details = JSON.parse(JSON.stringify(res.data));
         this.setState({
           service_details: service_details

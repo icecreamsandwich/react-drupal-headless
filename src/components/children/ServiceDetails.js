@@ -46,28 +46,28 @@ class ServiceDetails extends Component {
             <React.Fragment>
                 <ErrorCatcher>
                     <div>
-                        <h2>User Details</h2>
+                        <h2>Service Details</h2>
                         <form action="" method="POST" onSubmit={this.handleSubmit} className="form">
                             <table className="table">
                                 <tr>
                                     <td>Service Name</td>
-                                    <td><input readonly type="text" name="field_service_name" value={this.state.field_service_name} onChange={(e) => { this.handleChange(e) }} /></td>
+                                    <td><input  type="text" name="field_service_name" value={this.state.field_service_name} onChange={(e) => { this.handleChange(e) }} readonly="readonly"/></td>
                                 </tr>
                                 <tr>
                                     <td>SLU</td>
-                                    <td><input readonly type="text" name="field_remedy_slu" value={this.state.field_remedy_slu} onChange={(e) => { this.handleChange(e) }} /></td>
+                                    <td><input  type="text" name="field_remedy_slu" value={this.state.field_remedy_slu} onChange={(e) => { this.handleChange(e) }} readonly="readonly"/></td>
                                 </tr>
                                 <tr>
                                     <td>SLA</td>
-                                    <td><input readonly type="text" name="field_p_sla" value={this.state.field_p_sla} onChange={(e) => { this.handleChange(e) }} /></td>
+                                    <td><input  type="text" name="field_p_sla" value={this.state.field_p_sla} onChange={(e) => { this.handleChange(e) }} readonly="readonly"/></td>
                                 </tr>
                                 <tr>
                                     <td>Environment</td>
-                                    <td><input readonly type="text" name="field_p_environment" value={this.state.field_p_environment} onChange={(e) => { this.handleChange(e) }} /></td>
+                                    <td><input  type="text" name="field_p_environment" value={this.state.field_p_environment} onChange={(e) => { this.handleChange(e) }} readonly="readonly"/></td>
                                 </tr>
                                 <tr>
                                     <td>Service Owner</td>
-                                    <td><input readonly type="text" name="field_service_owner_name" value={this.state.field_service_owner_name} onChange={(e) => { this.handleChange(e) }} /></td>
+                                    <td><input  type="text" name="field_service_owner_name" value={this.state.field_service_owner_name} onChange={(e) => { this.handleChange(e) }} readonly="readonly"/></td>
                                 </tr>
                                 <tr>
                                     <td></td>
