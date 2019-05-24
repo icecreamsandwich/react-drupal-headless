@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import CssLoader from './CssLoader';
 
 class ServiceNames extends Component {
   state = {
@@ -24,7 +25,7 @@ class ServiceNames extends Component {
       console.log(this.state.service_details);
     }
     if (!this.state.service_details) {
-      return <div>Loading ...</div>;
+      return <CssLoader />; /* <div>Loading ...</div> */
     }
     return (
       <div>

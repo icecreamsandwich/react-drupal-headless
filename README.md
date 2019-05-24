@@ -1,4 +1,7 @@
 This app is deployed to `firebase` as https://react-headless-drupal.firebaseapp.com/#/
+<br/><br/>
+and to `Heroku` as https://lit-inlet-74437.herokuapp.com/#/
+
 ## Run the app
 Replace all the variables inside .env file which will include base URL, drupal URL and 
 other API servers if any.

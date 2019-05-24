@@ -3,6 +3,7 @@ var request = require('request');
 var express = require('express');
 var cors = require('cors');
 var bodyParser = require('body-parser');
+var dotenv = require('dotenv').config();
 
 const port = 3002;
 var app = express();
@@ -41,6 +42,22 @@ app.post('/camunda/getProcessInstances',function(req, res){
     var options ={
         method : 'GET',
         uri : host + '/engine-rest/process-instance',
+        headers : {
+            'Content-type' : 'application/json'
+        }          
+    }
+    request(options, function(err, response, body){
+        if(err) console.log(err);
+        else res.send(body);
+    })
+    
+});
+
+app.post('/camunda/getProcessDefinitions',function(req, res){
+    var host = process.env.REACT_APP_CAMUNDA_URL+':8080';
+    var options ={
+        method : 'GET',
+        uri : host + '/engine-rest/process-definition',
         headers : {
             'Content-type' : 'application/json'
         }          

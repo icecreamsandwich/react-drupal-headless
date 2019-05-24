@@ -1,19 +1,43 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import myContext from './Context';
 import MyConsumer from './MyConsumer';
+import CssLoader from './children/CssLoader';
 
 class Myprovider extends Component {
   state = {
-    /* name: 'AAron',
-        class: '4',
-        grade: 'A',
-        cool: true,
-        person2_grade : 'B',
-        counter : parseInt(localStorage.getItem("counter")) || 1 */
     routeTo: this.props.routeTo,
+    processInstances: '',
+    processDefinitions: '',
   };
 
+  componentDidMount() {
+    //APi to get all the process pInstances
+    var host = process.env.REACT_APP_HOST_URL + ':3002';
+    axios
+      .post(host + '/camunda/getProcessInstances')
+      .then(responseData => {
+        this.setState({
+          processInstances: responseData.data,
+        });
+      })
+      .catch(err => console.log(err));
+
+    //APi to get all the process Definitions
+    axios
+      .post(host + '/camunda/getProcessDefinitions')
+      .then(responseData => {
+        this.setState({
+          processDefinitions: responseData.data,
+        });
+      })
+      .catch(err => console.log(err));
+  }
+
   render() {
+    if (!this.state.processInstances || !this.state.processDefinitions) {
+      return <CssLoader />;
+    }
     return (
       <div>
         <myContext.Provider
@@ -28,12 +52,11 @@ class Myprovider extends Component {
     );
   }
 }
-
 export default Myprovider;
 
 /* IncrementCounter: () =>{
     this.setState({
-        counter : this.state.counter+1 
+        counter : this.state.counter+1
     })
     var counterInt = parseInt(this.state.counter)
     localStorage.setItem("counter",counterInt)
@@ -48,5 +71,5 @@ makeitHot : () =>{
     else coolBool = true;
     this.setState({
         cool : coolBool
-    })  
+    })
 } */
