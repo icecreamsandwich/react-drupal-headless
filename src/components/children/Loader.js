@@ -1,22 +1,23 @@
 import React from 'react';
 import axios from 'axios';
 
-const Loader = (BaseComponent) => {
+const Loader = BaseComponent => {
   class EnhancedComponent extends React.Component {
     state = {
       data: null,
     };
 
     componentDidMount() {
-        //call the api endpoint
-      var host = process.env.REACT_APP_HOST_URL+":3002";//"http://localhost:3002"
-      axios.post(host+"/api")
-      .then((res) =>{
+      //call the api endpoint
+      var host = process.env.REACT_APP_HOST_URL + ':3002'; //"http://localhost:3002"
+      axios
+        .post(host + '/api')
+        .then(res => {
           this.setState({
-            data :JSON.stringify(res.data)
+            data: JSON.stringify(res.data),
+          });
         })
-      })
-      .catch(err => console.log(err));   
+        .catch(err => console.log(err));
       /* var details = {
         status : 'success',
         data : 'loaded'
@@ -29,12 +30,12 @@ const Loader = (BaseComponent) => {
     render() {
       var details = this.state.data;
       var details_ar = JSON.parse(details);
-     
+
       if (!this.state.data) {
         return <div>Loading ...</div>;
       }
 
-      return <BaseComponent data={details_ar}  />;
+      return <BaseComponent data={details_ar} />;
     }
   }
 

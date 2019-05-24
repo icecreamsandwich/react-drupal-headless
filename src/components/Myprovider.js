@@ -3,29 +3,30 @@ import myContext from './Context';
 import MyConsumer from './MyConsumer';
 
 class Myprovider extends Component {
-    state = {
-        /* name: 'AAron',
+  state = {
+    /* name: 'AAron',
         class: '4',
         grade: 'A',
         cool: true,
         person2_grade : 'B',
         counter : parseInt(localStorage.getItem("counter")) || 1 */
-        routeTo : this.props.routeTo
-    }
-   
-    render() {
-        return (
-            <div>
-                <myContext.Provider value={{
-                    state: this.state,                    
-                }} >
-                    {this.props.children}   
-                    <MyConsumer />
-                </myContext.Provider>
-            </div>
-        );
+    routeTo: this.props.routeTo,
+  };
 
-    }
+  render() {
+    return (
+      <div>
+        <myContext.Provider
+          value={{
+            state: this.state,
+          }}
+        >
+          {this.props.children}
+          <MyConsumer />
+        </myContext.Provider>
+      </div>
+    );
+  }
 }
 
 export default Myprovider;

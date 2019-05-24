@@ -7,20 +7,19 @@ import Routes from '../../Routes';
 import ErroCatcher from '../../ErrorCatcher';
 
 class Container extends Component {
-    render() {
-        return (
-            <div>
-                <Header />
-                <LeftNav />
-                <ErroCatcher>
-                    <Routes />
-                </ErroCatcher>
-                <RightNav />
-                <Footer />
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div>
+        <Header />
+        <LeftNav />
+        <ErroCatcher>
+          <Routes />
+        </ErroCatcher>
+        <RightNav />
+        <Footer />
+      </div>
+    );
+  }
 }
-
 
 export default Container;

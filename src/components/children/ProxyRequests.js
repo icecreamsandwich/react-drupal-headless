@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 export default class ProxyRequests extends Component {
-    render() {
-        return (
-            <div>
-                <h5>Proxy Requests</h5>
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div>
+        <h5>Proxy Requests</h5>
+      </div>
+    );
+  }
 }
