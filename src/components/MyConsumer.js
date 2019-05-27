@@ -6,12 +6,14 @@ import CssLoader from './children/CssLoader'; */
 //Import components
 import CamundaProcess from './children/camunda/CamundaProcess';
 import CamundaProcessDefinitions from './children/camunda/CamundaProcessDefinitions';
+import Tasks from './children/camunda/Tasks';
 
 class MyConsumerA extends Component {
   render() {
     var context_ar = this.props.value;
     var pInstances = context_ar.state.processInstances;
     var pDefinitions = context_ar.state.processDefinitions;
+    var TaskList = context_ar.state.Tasks;
     /* var pInstances = this.props.processInstances;
         var processDefinitions = this.props.processDefinitions; */
 
@@ -20,16 +22,21 @@ class MyConsumerA extends Component {
         {context_ar.state.routeTo === 'CamundaProcess' ? (
           <CamundaProcess value={context_ar} pInstances={pInstances} />
         ) : (
-          ''
-        )}
+            ''
+          )}
         {context_ar.state.routeTo === 'CamundaProcessDefinitions' ? (
           <CamundaProcessDefinitions
             value={context_ar}
             pDefinitions={pDefinitions}
           />
         ) : (
-          ''
-        )}
+            ''
+          )}
+        {context_ar.state.routeTo === 'CamundaTasks' ? (
+          <Tasks value={context_ar} TaskList={TaskList} />
+        ) : (
+            ''
+          )}
       </div>
     );
   }

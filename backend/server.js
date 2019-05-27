@@ -52,12 +52,29 @@ app.post('/camunda/getProcessInstances',function(req, res){
     })
     
 });
-
+// camunda process definitions
 app.post('/camunda/getProcessDefinitions',function(req, res){
     var host = process.env.REACT_APP_CAMUNDA_URL+':8080';
     var options ={
         method : 'GET',
         uri : host + '/engine-rest/process-definition',
+        headers : {
+            'Content-type' : 'application/json'
+        }          
+    }
+    request(options, function(err, response, body){
+        if(err) console.log(err);
+        else res.send(body);
+    })
+    
+});
+
+// camunda tasks
+app.post('/camunda/tasks',function(req, res){
+    var host = process.env.REACT_APP_CAMUNDA_URL+':8080';
+    var options ={
+        method : 'GET',
+        uri : host + '/engine-rest/task',
         headers : {
             'Content-type' : 'application/json'
         }          

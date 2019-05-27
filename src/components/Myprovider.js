@@ -9,6 +9,7 @@ class Myprovider extends Component {
     routeTo: this.props.routeTo,
     processInstances: '',
     processDefinitions: '',
+    Tasks: '',
   };
 
   componentDidMount() {
@@ -32,12 +33,29 @@ class Myprovider extends Component {
         });
       })
       .catch(err => console.log(err));
+
+    //APi to get all camunda tasks
+    axios
+      .post(host + '/camunda/tasks')
+      .then(responseData => {
+        this.setState({
+          Tasks: responseData.data,
+        });
+      })
+      .catch(err => console.log(err));
   }
 
   render() {
-    if (!this.state.processInstances || !this.state.processDefinitions) {
+    if (!this.state.processInstances && this.state.routeTo === 'CamundaProcess') { 
       return <CssLoader />;
     }
+    else if (!this.state.processDefinitions && this.state.routeTo === 'CamundaProcessDefinitions') { 
+      return <CssLoader />;
+    }
+    else if (!this.state.Tasks && this.state.routeTo === 'CamundaTasks') { 
+      return <CssLoader />;
+    }
+  //  || !this.state.processDefinitions || !this.state.Tasks
     return (
       <div>
         <myContext.Provider
