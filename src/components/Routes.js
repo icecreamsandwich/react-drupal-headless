@@ -44,10 +44,7 @@ class Routes extends Component {
           <Route
             path="/tasks"
             component={props => (
-              <ProviderRoutes
-                {...props}
-                routeTo={'CamundaTasks'}
-              />
+              <ProviderRoutes {...props} routeTo={'CamundaTasks'} />
             )}
           />
         </HashRouter>

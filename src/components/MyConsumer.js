@@ -22,21 +22,21 @@ class MyConsumerA extends Component {
         {context_ar.state.routeTo === 'CamundaProcess' ? (
           <CamundaProcess value={context_ar} pInstances={pInstances} />
         ) : (
-            ''
-          )}
+          ''
+        )}
         {context_ar.state.routeTo === 'CamundaProcessDefinitions' ? (
           <CamundaProcessDefinitions
             value={context_ar}
             pDefinitions={pDefinitions}
           />
         ) : (
-            ''
-          )}
+          ''
+        )}
         {context_ar.state.routeTo === 'CamundaTasks' ? (
           <Tasks value={context_ar} TaskList={TaskList} />
         ) : (
-            ''
-          )}
+          ''
+        )}
       </div>
     );
   }

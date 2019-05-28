@@ -46,16 +46,20 @@ class Myprovider extends Component {
   }
 
   render() {
-    if (!this.state.processInstances && this.state.routeTo === 'CamundaProcess') { 
+    if (
+      !this.state.processInstances &&
+      this.state.routeTo === 'CamundaProcess'
+    ) {
+      return <CssLoader />;
+    } else if (
+      !this.state.processDefinitions &&
+      this.state.routeTo === 'CamundaProcessDefinitions'
+    ) {
+      return <CssLoader />;
+    } else if (!this.state.Tasks && this.state.routeTo === 'CamundaTasks') {
       return <CssLoader />;
     }
-    else if (!this.state.processDefinitions && this.state.routeTo === 'CamundaProcessDefinitions') { 
-      return <CssLoader />;
-    }
-    else if (!this.state.Tasks && this.state.routeTo === 'CamundaTasks') { 
-      return <CssLoader />;
-    }
-  //  || !this.state.processDefinitions || !this.state.Tasks
+    //  || !this.state.processDefinitions || !this.state.Tasks
     return (
       <div>
         <myContext.Provider
