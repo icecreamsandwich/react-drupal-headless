@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
+import {Link} from 'react-router-dom';
 
 export default class Tasks extends Component {
-    render() {    
-        var Tasks = this.props.TaskList;       
+    render() {
+        var Tasks = this.props.TaskList;
         return (
             <div>
                 <React.Fragment>
@@ -10,8 +11,8 @@ export default class Tasks extends Component {
                     <table className="table">
                         <tbody>
                             <tr>
-                                <th>Id</th>
-                                <th>name</th>
+                                <th>Task Id</th>
+                                <th>Task Name</th>
                                 <th>processInstanceId</th>
                                 <th>taskDefinitionKey</th>
                                 <th>created</th>
@@ -20,9 +21,21 @@ export default class Tasks extends Component {
                             {Tasks && Tasks.length > 0
                                 ? Tasks.map(items => {
                                     return (
-                                        <React.Fragment>
+                                        <React.Fragment key={items.id}>
                                             <tr>
-                                                <td>{items.id}</td>
+                                                <td>
+                                                    <Link
+                                                        to={{
+                                                            pathname: '/taskdetails',
+                                                            state: {
+                                                                task_id: items.id,
+                                                                processInstanceId: items.processInstanceId,
+                                                            },
+                                                        }}
+                                                    >
+                                                        {items.id}
+                                                    </Link>
+                                                </td>
                                                 <td>{items.name}</td>
                                                 <td>{items.processInstanceId}</td>
                                                 <td>{items.taskDefinitionKey}</td>

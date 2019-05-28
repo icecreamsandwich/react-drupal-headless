@@ -9,7 +9,8 @@ import IPRanges from './children/IPRanges';
 import Locations from './children/Locations';
 import Vcenters from './children/Vcenters';
 import ProxyRequests from './children/ProxyRequests';
-/* import CamundaProcess from './children/CamundaProcess'; */
+import TaskDetails from './children/camunda/TaskDetails';
+
 import ProviderRoutes from './ProviderRoutes';
 
 class Routes extends Component {
@@ -25,6 +26,7 @@ class Routes extends Component {
           <Route path="/locations" component={Locations} />
           <Route path="/vcenters" component={Vcenters} />
           <Route path="/proxy_requests" component={ProxyRequests} />
+          <Route path="/taskdetails" component={TaskDetails} />
           {/* <Route path="/camunda_processes" component={CamundaProcess} /> */}
           <Route
             path="/camunda_processes"
