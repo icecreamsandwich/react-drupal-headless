@@ -16,7 +16,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prettier": "prettier --single-quote --trailing-comma es5 --write  src/**/*.js",
+    "prettier": "prettier --single-quote --trailing-comma es5 --write  src/**/*.js backend/*.js",
     "nohup": "nohup react-scripts start >> app.log 2>&1 &"
   },
   "eslintConfig": {
