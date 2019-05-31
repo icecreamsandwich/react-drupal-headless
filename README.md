@@ -3,11 +3,11 @@ This app is deployed to `firebase` as https://react-headless-drupal.firebaseapp.
 and to `Heroku` as https://lit-inlet-74437.herokuapp.com/#/
 
 ## Run the app
-Replace all the variables inside .env file which will include base URL, drupal URL and 
+Replace all the variables inside `.env` file which will include base URL, drupal URL and 
 other API servers if any.
 
 ### `start the backend server`
-`cd backend && npm start`
+`cd backend && npm install && npm start`
 <br/><br/><br/><br/>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
