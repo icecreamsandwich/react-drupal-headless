@@ -70,24 +70,12 @@ export default class TaskDetails extends Component {
         e.preventDefault();
         var host = process.env.REACT_APP_HOST_URL + ":3002";
         var json = JSON.stringify(this.state.additionalVars);
-        //var json = JSON.stringify(this.state.additionalVars);
-        //console.log(json);
-        //build the json string
-        /* var varString = ""
-        this.state.additionalVars.map((item, index) => {
-            return(
-                varString = index+': { "value": '+item+', "type": "String" }'
-            )
-        })
-        var jsonString = {
-            "variables":
-            {
-                varString
-                //"reactVariable2": { "value": "reactVariable23444", "type": "String" },
-            }
-        }; 
-        console.log(jsonString);    
-        */
+        console.log(json)
+        if(!this.state.additionalVars[0]){
+            alert("Please enter atleast one variable")
+            return false;
+        }
+       
         if (this.state.task_id) {
             axios.post(host + '/camunda/task/resolve/' + this.state.task_id, {
                 json: json
@@ -98,6 +86,7 @@ export default class TaskDetails extends Component {
                 })
                 .catch(err => console.log(err))
         }
+        else alert("Task id is empty")
     }
     render() {
         if (!this.state || !this.state.taskVariables) {
@@ -148,7 +137,7 @@ export default class TaskDetails extends Component {
                                     </React.Fragment>
                                 )
                             }) : ""}
-                            <br /><br />
+                            
                             <button onClick={(e) => this.addVariable(e)}> Add Variable</button>
                             <br />
                             <tr>
