@@ -8,7 +8,7 @@ class LeftNav extends Component {
                 <HashRouter>
                     <ul>
                         <li> <Link to={{
-                            path: '/proxy_requests',
+                            pathname: '/proxy_requests',
                             state: {
                             }
                         }} >Proxy Requests </Link></li>

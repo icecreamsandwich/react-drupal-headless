@@ -4,7 +4,7 @@ class IPRanges extends Component {
   render() {
     return (
       <div>
-        <h2>Ip ranges</h2>
+        <h5>Ip ranges</h5>
       </div>
     );
   }
