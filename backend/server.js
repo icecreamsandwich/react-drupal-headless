@@ -152,6 +152,23 @@ app.post('/camunda/task/resolve/:task_id', function(req, res) {
   });
 });
 
+//IP ranges overview api 
+app.post('/drupal/api/getAllIpRangesDetails', function(req, res) {
+  var host = process.env.REACT_APP_DRUPAL_URL;
+  var options = {
+    method: 'POST',
+    uri: host + '/gasf/getAllIpRangesDetails',
+    headers: {
+      'Content-type': 'application/json',
+    },
+  };
+  request(options, function(err, response, body) {
+    if (err) console.log(err);
+    else res.send(body);
+  });
+});
+
+
 app.listen(port, function(req, res) {
   console.log(`app is listening on port ${port}`);
 });
