@@ -9,7 +9,7 @@ drilldown(Highcharts);
 class IPRanges extends Component {
   state = {
     ip_range_details: '',
-    options: ''
+    options: '',
   };
 
   componentDidMount() {
@@ -26,17 +26,16 @@ class IPRanges extends Component {
   }
 
   render() {
-
     if (this.state.ip_range_details) {
       var data = [];
       var drilldown = [];
-    //  var dataDrilldown = [];
+      //  var dataDrilldown = [];
       this.state.ip_range_details.map(items => {
         data.push({
           name: items.ip_range,
           y: items.available,
           drilldown: items.ip_range,
-        })
+        });
         /* dataDrilldown.push([
           items.used, 
           items.blocked,
@@ -48,11 +47,11 @@ class IPRanges extends Component {
           ['available', items.available],
         ];
         drilldown.push({
-            name: items.ip_range,
-            id: items.ip_range,
-            data: dataDrill
-        })
-      })
+          name: items.ip_range,
+          id: items.ip_range,
+          data: dataDrill,
+        });
+      });
       var options = {
         title: {
           text: 'High chart',
@@ -64,27 +63,22 @@ class IPRanges extends Component {
           {
             name: 'IPRanges',
             colorByPoint: true,
-            data: data
-          }
+            data: data,
+          },
         ],
         drilldown: {
-         series : drilldown
-        }
+          series: drilldown,
+        },
       };
-     // var options = JSON.stringify(options)
-     console.log(JSON.stringify(options))
-     // alert(JSON.stringify(options))
+      // var options = JSON.stringify(options)
+      console.log(JSON.stringify(options));
+      // alert(JSON.stringify(options))
     }
-  
+
     if (!this.state.ip_range_details) {
       return <CssLoader />;
     }
-    return (
-      <HighchartsReact
-        highcharts={Highcharts}
-        options={options}
-      />
-    );
+    return <HighchartsReact highcharts={Highcharts} options={options} />;
   }
 }
 
