@@ -197,12 +197,9 @@ app.post('/drupal/api/getAllVcenters', function(req, res) {
     },
   };
   request(options, function(err, response, body) {
-    if (err){
+    if (err) {
       console.log(err);
-      alert(response);
-      alert(err)
-    } 
-    else res.send(body);
+    } else res.send(body);
   });
 });
 
