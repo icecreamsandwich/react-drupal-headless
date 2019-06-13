@@ -45,7 +45,7 @@ class ServiceNames extends Component {
               this.state.service_details.length > 0
                 ? this.state.service_details.map(items => {
                     return (
-                      <React.Fragment>
+                      <React.Fragment key={items.field_service_name}>
                         <tr>
                           <td>
                             <Link

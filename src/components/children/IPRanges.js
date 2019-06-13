@@ -26,12 +26,12 @@ class IPRanges extends Component {
   }
 
   render() {
-
     if (this.state.ip_range_details) {
       var data = [];
       var drilldown = [];
     //  var dataDrilldown = [];
-      this.state.ip_range_details.map(items => {
+
+      this.state.ip_range_details.map((items, index) => {
         data.push({
           name: items.ip_range,
           y: items.available,
@@ -52,10 +52,11 @@ class IPRanges extends Component {
             id: items.ip_range,
             data: dataDrill
         })
+        return("");
       })
       var options = {
         title: {
-          text: 'High chart',
+          text: 'IP Range Overview',
         },
         chart: {
           type: 'pie',
@@ -71,9 +72,6 @@ class IPRanges extends Component {
          series : drilldown
         }
       };
-     // var options = JSON.stringify(options)
-     console.log(JSON.stringify(options))
-     // alert(JSON.stringify(options))
     }
   
     if (!this.state.ip_range_details) {
