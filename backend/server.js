@@ -21,22 +21,6 @@ app.get('/', function(req, res) {
   res.send(`app is listening on port ${port}`);
 });
 
-//Api to recieve rest data from drupal
-app.post('/drupal/api/getAllServiceNames', function(req, res) {
-  var host = process.env.REACT_APP_DRUPAL_URL;
-  var options = {
-    method: 'POST',
-    uri: host + '/gasf/getAllServiceNames',
-    headers: {
-      'Content-type': 'application/json',
-    },
-  };
-  request(options, function(err, response, body) {
-    if (err) console.log(err);
-    else res.send(body);
-  });
-});
-
 //Camunda API's //
 //get all process instances
 app.post('/camunda/getProcessInstances', function(req, res) {
@@ -115,14 +99,6 @@ app.post('/camunda/task/resolve/:task_id', function(req, res) {
     var key = splitted[0];
     var value = splitted[1];
 
-    /*  Format
-  var json = {
-         "variables":
-         {
-             "reactVariable3": { "value": "var3", "type": "String" },
-         }
-     }; 
-  */
     camundaVars.variables[key] = {
       value: value,
       type: 'String',
@@ -152,6 +128,39 @@ app.post('/camunda/task/resolve/:task_id', function(req, res) {
   });
 });
 
+//  Drupal APIs //
+//Api to get all service names from drupal
+app.post('/drupal/api/getAllServiceNames', function(req, res) {
+  var host = process.env.REACT_APP_DRUPAL_URL;
+  var options = {
+    method: 'POST',
+    uri: host + '/gasf/getAllServiceNames',
+    headers: {
+      'Content-type': 'application/json',
+    },
+  };
+  request(options, function(err, response, body) {
+    if (err) console.log(err);
+    else res.send(body);
+  });
+});
+
+//Api to get all proxy requests
+app.post('/drupal/api/getAllProxyRequests', function(req, res) {
+  var host = process.env.REACT_APP_DRUPAL_URL;
+  var options = {
+    method: 'POST',
+    uri: host + '/gasf/getAllProxyRequests',
+    headers: {
+      'Content-type': 'application/json',
+    },
+  };
+  request(options, function(err, response, body) {
+    if (err) console.log(err);
+    else res.send(body);
+  });
+});
+
 //IP ranges overview api
 app.post('/drupal/api/getAllIpRangesDetails', function(req, res) {
   var host = process.env.REACT_APP_DRUPAL_URL;
@@ -164,6 +173,35 @@ app.post('/drupal/api/getAllIpRangesDetails', function(req, res) {
   };
   request(options, function(err, response, body) {
     if (err) console.log(err);
+    else res.send(body);
+  });
+});
+
+// Vcenter details API
+app.post('/drupal/api/getAllVcenters', function(req, res) {
+  var host = process.env.REACT_APP_DRUPAL_ADMIN_URL;
+
+  var auth =
+    'Basic ' +
+    new Buffer(
+      process.env.REACT_APP_DRUPAL_USERNAME +
+        ':' +
+        process.env.REACT_APP_DRUPAL_PASS
+    ).toString('base64');
+  var options = {
+    method: 'POST',
+    uri: host + '/getAllVcenters',
+    headers: {
+      'Content-type': 'application/json',
+      Authorization: auth,
+    },
+  };
+  request(options, function(err, response, body) {
+    if (err){
+      console.log(err);
+      alert(response);
+      alert(err)
+    } 
     else res.send(body);
   });
 });

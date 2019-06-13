@@ -29,18 +29,14 @@ class IPRanges extends Component {
     if (this.state.ip_range_details) {
       var data = [];
       var drilldown = [];
-      //  var dataDrilldown = [];
+  
       this.state.ip_range_details.map(items => {
         data.push({
           name: items.ip_range,
           y: items.available,
           drilldown: items.ip_range,
         });
-        /* dataDrilldown.push([
-          items.used, 
-          items.blocked,
-          items.available
-        ]) */
+
         var dataDrill = [
           ['used', items.used],
           ['blocked', items.blocked],
@@ -71,9 +67,7 @@ class IPRanges extends Component {
           series: drilldown,
         },
       };
-      // var options = JSON.stringify(options)
       console.log(JSON.stringify(options));
-      // alert(JSON.stringify(options))
     }
 
     if (!this.state.ip_range_details) {

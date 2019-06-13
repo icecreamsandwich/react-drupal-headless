@@ -25,7 +25,7 @@ class ServiceNames extends Component {
       console.log(this.state.service_details);
     }
     if (!this.state.service_details) {
-      return <CssLoader />; /* <div>Loading ...</div> */
+      return <CssLoader />;
     }
     return (
       <div>
