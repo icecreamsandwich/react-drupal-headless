@@ -40,13 +40,14 @@ class Vcenters extends Component {
               {this.state.vcenter_details &&
               this.state.vcenter_details.length > 0
                 ? this.state.vcenter_details.map(items => {
+                  var clusterPaths = items.field_vcenter_cluster_paths.match(/[^\r\n]+/g);
                     return (
                       <React.Fragment key={items.field_vcenter_ip}>
                         <tr>
                           <td>{items.field_vcenter_ip}</td>
                           <td>{items.field_vcenter_type}</td>
                           <td>{items.field_vcenter_ds_filter}</td>
-                          <td>{items.field_vcenter_cluster_paths}</td>
+                          <td>{clusterPaths[0]} <br/>{clusterPaths[1]}</td>
                           <td>{items.field_template_name}</td>
                         </tr>
                       </React.Fragment>
